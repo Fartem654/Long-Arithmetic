@@ -14,7 +14,10 @@ int main()
         system("cls");
         cout << "Программа перевода многозначного числа в систему счисления с основанием шестнадцать.\n";
 
-        string input_numb;
+        string input_numb; // Строка с исходным числом.
+        vector <int> vec_num; // Массив с исходным поразрядно разбитым числом.
+        vector <string> answer; // Массив с исходным числом в 16-ичной системе счисления. Ответ.
+
         cout << "Введите целое число больше нуля: \n-> "; cin >> input_numb;
         checkInput(input_numb);
 
@@ -22,15 +25,15 @@ int main()
         cout << "Исходное число (" << input_numb.size() << " знаков):" << endl;
         cout << input_numb << " |10\n" << endl;
 
-        vector <int> vec_num = form_vec(input_numb);
-        vector <string> quotient;
+        vec_num = form_vec(input_numb); // Массив с исходным поразрядно разбитым числом.
 
-        bodyOfConvertTo16(vec_num, quotient);
+
+        bodyOfConvertTo16(vec_num, answer);
 
         cout<<"Исходное число в 16-ичной системе счисления: " << endl;
 
-        for (int i = quotient.size()-1; i >=0; i--) {
-            cout << quotient[i];
+        for (int i = answer.size()-1; i >=0; i--) {
+            cout << answer[i];
         }
         cout << " |16" << endl << endl;
 

@@ -80,16 +80,16 @@ void checkProgrLoop(int& val) {
 	}
 }
 
- vector <int> form_vec(string& inp_n) {
-	 int cur_siz = inp_n.size();
-	 vector <int> vec_n;
+ vector <int> form_vec(string& input_numb) {
+	 int cur_siz = input_numb.size();
+	 vector <int> vec_num;
 	 for (int i = 0; i < cur_siz; i++) {
-		 vec_n.push_back((int)(inp_n[i] - '0'));
+		 vec_num.push_back((int)(input_numb[i] - '0'));
 	 }
-	 return vec_n;
+	 return vec_num;
 }
 
- string formTo16(int x){
+string formTo16(int x){
 	 string ans;
 	 if (x >= 0 and x <= 9)
 		 ans = to_string(x);
@@ -125,43 +125,43 @@ void checkProgrLoop(int& val) {
 	 }
  }
 
-bool checkRemains(vector <int> divisible, vector <string>& ans) {
+bool checkRemains(vector <int> divisible, vector <string>& answer) {
 	bool f = 1;
 	if (divisible.size() <= 2) {
 		if (divisible.size() == 1) { 
 			f = 0;
-			ans.push_back(formTo16(divisible[0]));
+			answer.push_back(formTo16(divisible[0]));
 		}
 		else if (divisible[0] * 10 + divisible[1] < 16) {
 			f = 0;
-			ans.push_back(formTo16(divisible[0] * 10 + divisible[1]));
+			answer.push_back(formTo16(divisible[0] * 10 + divisible[1]));
 		}
 	}
 	return f;
  }
 
- void bodyOfConvertTo16(vector <int> divisible_a, vector <string> &ans) {
+void bodyOfConvertTo16(vector <int> divisible_a, vector <string> &answer) {
 	 vector <int> divisible_b;
 	 bool f = 1;
 	 int remaind;
 
-	 f = checkRemains(divisible_a, ans);
+	 f = checkRemains(divisible_a, answer);
 	 
 	 while(f){
 		 dividColBy16(divisible_a, divisible_b, remaind); // divisible_a - делимое; divisible_b - частное
 
 		 divisible_a.clear(); // - освобождаем вектор для записи частного
-		 ans.push_back(formTo16(remaind));// Формируем ответ
+		 answer.push_back(formTo16(remaind));// Формируем ответ
 
-		f = checkRemains(divisible_b, ans);
+		f = checkRemains(divisible_b, answer);
 
 		if(f){
 			 dividColBy16(divisible_b, divisible_a, remaind); // divisible_b - делимое; divisible_a - частное
 
 			 divisible_b.clear();
-			 ans.push_back(formTo16(remaind)); 
+			 answer.push_back(formTo16(remaind)); 
 
-			 f = checkRemains(divisible_a, ans);
+			 f = checkRemains(divisible_a, answer);
 		}
 	 }
 }
