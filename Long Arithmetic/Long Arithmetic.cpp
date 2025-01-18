@@ -32,6 +32,7 @@ int main()
 
         cout<<"Исходное число в 16-ичной системе счисления: " << endl;
 
+        // Вывод ответа
         for (int i = answer.size()-1; i >=0; i--) {
             cout << answer[i];
         }

@@ -52,7 +52,7 @@ void checkProgrLoop(int& val) {
 			system("cls");
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "ќшибка!\n¬веден недопустимый символ!\n! ¬ведите '1' или '0'.\n";
+			cout << "ќшибка!\n¬ведено недопустимое значение!\n! ¬ведите 1 или 0 без пробелов и других символов.\n";
 			cout << "’отите выполнить программу еще раз?\n1 - да\n0 - нет" << endl << "-> ";
 			cin >> val;
 			continue;
@@ -62,7 +62,8 @@ void checkProgrLoop(int& val) {
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		if (cin.gcount() > 1) {
 			system("cls");
-			cout << "! ¬ведите '1' или '0' без пробелов.\n";
+			cout << "ќшибка!\n¬ведено недопустимое значение!\n";
+			cout << "! ¬ведите 1 или 0 без пробелов и других символов.\n";
 			cout << "’отите выполнить программу еще раз?\n1 - да\n0 - нет" << endl << "-> ";
 			cin >> val;
 			continue;
@@ -71,7 +72,8 @@ void checkProgrLoop(int& val) {
 		// ѕроверка на корректный ввод.
 		if (val < 0 or val > 1) {
 			system("cls");
-			cout << "¬ведено недопустимое число!\n! ¬ведите '1' или '0'.\n";
+			cout << "¬ведено недопустимое число! (" << val << ")\n";
+			cout << "¬ведите 1 или 0.\n";
 			cout << "’отите выполнить программу еще раз?\n1 - да\n0 - нет" << endl << "-> ";
 			cin >> val;
 			continue;

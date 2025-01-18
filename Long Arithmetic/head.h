@@ -29,6 +29,6 @@ void dividColBy16(vector <int> divisible, vector <int>& result, int& remaind);
 /// ≈сли да, записывает его в вектор с ответом и завершает внешний цикл.
 bool checkRemains(vector <int> divisible, vector <string>& answer);
 
-/// ѕоочередно елит частное на 16.
+/// ѕоочередно делит частное на 16.
 /// «аписывает остаток от делени€ в результирующий вектор, тем  самым формиру€ 16-чное число.
 void bodyOfConvertTo16(vector <int> divisible_a, vector <string>& answer);
